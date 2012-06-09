@@ -1,7 +1,8 @@
 = referencia_abnt
 
-Geração de referências bibliográficas ABNT com base no documento "Estilo bibtex
-compatível com as "normas" 6023 e 10520 da ABNT", versão 1.48.
+Geração de referências bibliográficas ABNT com base na norma 6023 da ABNT e o
+documento "Estilo bibtex compatível com as "normas" 6023 e 10520 da ABNT",
+versão 1.48.
 
 == Contributing to referencia_abnt
 
