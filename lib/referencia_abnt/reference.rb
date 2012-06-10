@@ -1,7 +1,7 @@
 class ABNTReference
   def initialize(options)
     @reference = "%s %s. %s: %s, %s." % [
-      Author.new(options[:author]),
+      Author.new(author: options[:author]),
       Title.new(options[:title], options[:subtitle]),
       options[:address],
       options[:publisher],
