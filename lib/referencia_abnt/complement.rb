@@ -10,7 +10,7 @@ class Complement
   private
 
   def render_pages
-    @pages ? " #{@pages}p." : ''
+    @pages ? " #{@pages} p." : ''
   end
 
   def render_note
