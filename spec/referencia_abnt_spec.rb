@@ -17,7 +17,7 @@ describe ABNTReference do
     ABNTReference.new(
       author: 'Cláudio Pastro',
       title: 'Arte Sacra',
-      subtitle: 'Espaço Sagrado Hoje',
+      subtitle: 'Espaço sagrado hoje',
       address: 'São Paulo',
       publisher: 'Loyola',
       year: 1993).to_s.should ==
