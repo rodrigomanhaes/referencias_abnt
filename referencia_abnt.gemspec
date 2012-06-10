@@ -16,5 +16,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.files = Dir.glob('lib/**/*.rb') + %w(README.rdoc LICENSE.txt VERSION)
+  s.add_dependency('unicode', '~> 0.4.2')
   s.add_development_dependency('rspec', '~> 2.10.0')
 end
