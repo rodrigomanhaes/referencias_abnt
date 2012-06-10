@@ -75,5 +75,16 @@ describe ABNTReference do
         year: 2001).to_s.should ==
       'ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10520: Informação e documentação - Apresentação de citações em documentos. Rio de Janeiro, jul. 2001. 4 p. Substitui a Ref. 6.'
     end
+
+    it 'example 7' do
+      ABNTReference.new(
+        author: 'Gerald Weber',
+        organization: 'Grupo abnTeX',
+        subtitle: 'Questões específicas da "norma" 10520/2001',
+        title: 'Estilo bibtex compatível com a "norma" 6023/2000 da ABNT',
+        url: 'http://abntex.codigolivre.org.br',
+        year: 2003).to_s.should ==
+      'WEBER, G. Estilo bibtex compatível com a "norma" 6023/2000 da ABNT: Questões específicas da "norma" 10520/2001. [S.l.], 2003. Disponível em: <http://abntex.codigolivre.org.br>.'
+    end
   end
 end
