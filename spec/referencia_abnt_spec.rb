@@ -37,5 +37,17 @@ describe ABNTReference do
         year: 2002).to_s.should ==
       'ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6023: Informação e documentação - Referências - Elaboração. Rio de Janeiro, ago. 2002. 24 p. Substitui a Ref. 3.'
     end
+
+    it 'example 3' do
+      ABNTReference.new(
+        address: 'Rio de Janeiro',
+        month: 'ago',
+        organization: 'Associação Brasileira de Normas Técnicas',
+        pages: 22,
+        subtitle: 'Informação e documentação - Referências - Elaboração',
+        title: 'NBR 6023',
+        year: 2000).to_s.should ==
+      'ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6023: Informação e documentação - Referências - Elaboração. Rio de Janeiro, ago. 2000. 22 p.'
+    end
   end
 end
