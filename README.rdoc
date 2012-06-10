@@ -1,7 +1,7 @@
 = referencia_abnt
 
-Build Status {<img src="https://secure.travis-ci.org/rodrigomanhaes/referencias_abnt.png"/>}[http://travis-ci.org/rodrigomanhaes/referencias_abnt]
-Dependency Status {<img src="https://gemnasium.com/rodrigomanhaes/referencias_abnt.png"/>}[https://gemnasium.com/rodrigomanhaes/referencias_abnt]
+{<img src="https://secure.travis-ci.org/rodrigomanhaes/referencias_abnt.png"/>}[http://travis-ci.org/rodrigomanhaes/referencias_abnt]
+{<img src="https://gemnasium.com/rodrigomanhaes/referencias_abnt.png"/>}[https://gemnasium.com/rodrigomanhaes/referencias_abnt]
 
 Geração de referências bibliográficas ABNT com base na norma 6023 da ABNT e o
 documento "Estilo bibtex compatível com as "normas" 6023 e 10520 da ABNT",
