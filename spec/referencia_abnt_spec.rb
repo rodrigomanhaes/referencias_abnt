@@ -62,5 +62,18 @@ describe ABNTReference do
         year: 2000).to_s.should ==
       'ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10520: Informação e documentação - Apresentação de citações em documentos. Rio de Janeiro, ago. 2000. 7 p. Substitui a Ref. 5.'
     end
+
+    it 'example 5' do
+      ABNTReference.new(
+        address: 'Rio de Janeiro',
+        month: 'jul',
+        note: 'Substitui a Ref. 6',
+        organization: 'Associação Brasileira de Normas Técnicas',
+        pages: 4,
+        subtitle: 'Informação e documentação - Apresentação de citações em documentos',
+        title: 'NBR 10520',
+        year: 2001).to_s.should ==
+      'ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10520: Informação e documentação - Apresentação de citações em documentos. Rio de Janeiro, jul. 2001. 4 p. Substitui a Ref. 6.'
+    end
   end
 end
