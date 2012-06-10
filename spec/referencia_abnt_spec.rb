@@ -23,4 +23,19 @@ describe ABNTReference do
       year: 1993).to_s.should ==
     'PASTRO, C. Arte Sacra: Espaço sagrado hoje. São Paulo: Loyola, 1993.'
   end
+
+  context 'examples from abntex book' do
+    it 'example 2' do
+      ABNTReference.new(
+        address: 'Rio de Janeiro',
+        month: 'ago',
+        note: 'Substitui a Ref. 3',
+        organization: 'Associação Brasileira de Normas Técnicas',
+        pages: 24,
+        subtitle: 'Informação e documentação - Referências - Elaboração',
+        title: 'NBR 6023',
+        year: 2002).to_s.should ==
+      'ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6023: Informação e documentação - Referências - Elaboração. Rio de Janeiro, ago. 2002. 24 p. Substitui a Ref. 3.'
+    end
+  end
 end
