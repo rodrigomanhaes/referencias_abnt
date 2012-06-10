@@ -7,4 +7,9 @@ describe Complement do
     Complement.new(pages: 4, note: 'Substitui a Ref. 6').to_s.
       should == ' 4 p. Substitui a Ref. 6.'
   end
+
+  it 'renders URL' do
+    Complement.new(url: 'http://abntex.codigolivre.org.br').to_s.
+      should == ' Disponível em: <http://abntex.codigolivre.org.br>.'
+  end
 end
