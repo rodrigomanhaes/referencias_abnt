@@ -1,11 +1,9 @@
 class ABNTReference
   def initialize(options)
-    @reference = "%s %s. %s: %s, %s." % [
-      Author.new(author: options[:author]),
+    @reference = "%s %s. %s." % [
+      Author.new(options.slice(:author, :organization)),
       Title.new(options[:title], options[:subtitle]),
-      options[:address],
-      options[:publisher],
-      options[:year]]
+      PublicationInfo.new(options.slice(:address, :publisher, :year))]
   end
 
   def to_s
