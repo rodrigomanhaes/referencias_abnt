@@ -17,4 +17,8 @@ describe PublicationInfo do
     PublicationInfo.new(address: 'Niterói', year: 1998, month: 'ago').to_s.
       should == 'Niterói, ago. 1998'
   end
+
+  it 'renders "[S.l.]" when no address is provided' do
+    PublicationInfo.new(year: 1998).to_s.should == '[S.l.], 1998'
+  end
 end
