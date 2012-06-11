@@ -86,5 +86,21 @@ describe ABNTReference do
         year: 2003).to_s.should ==
       'WEBER, G. Estilo bibtex compatível com a "norma" 6023/2000 da ABNT: Questões específicas da "norma" 10520/2001. [S.l.], 2003. Disponível em: <http://abntex.codigolivre.org.br>.'
     end
+
+    it 'example 8' do
+      ABNTReference.new(
+        address: 'Niterói',
+        author: 'Laura Graziela Figueiredo Fernandes Gomes',
+        dimensions: '21 cm',
+        isbn: '85-228-0268-8',
+        note: 'Bibliografia: p. 131-132',
+        number: 15,
+        pages: 137,
+        publisher: 'EdUFF',
+        series: 'Coleção Antropologia e Ciência Política',
+        title: 'Novela e Sociedade no Brasil',
+        year: 1998).to_s.should ==
+      'GOMES, L. G. F. F. Novela e Sociedade no Brasil. Niterói: EdUFF, 1998. 137 p., 21 cm. (Coleção Antropologia e Ciência Política, 15). Bibliografia: p. 131-132. ISBN 85-228-0268-8.'
+    end
   end
 end
