@@ -29,4 +29,12 @@ describe Author do
     Author.new(author: 'Johnny', organization: 'codigolivre.org').
       should be_provided
   end
+
+  it 'ignores name connectors' do
+    Author.new(author: 'José das Couves').to_s.should == 'COUVES, J.'
+    Author.new(author: 'Luis Alves de Lima e Silva').to_s.should ==
+      'SILVA, L. A. L.'
+    Author.new(author: 'Paulinho da Viola').to_s.should == 'VIOLA, P.'
+    Author.new(author: 'Jacob do Bandolim').to_s.should == 'BANDOLIM, J.'
+  end
 end

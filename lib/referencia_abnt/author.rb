@@ -17,6 +17,7 @@ class Author
 
   def make_author
     @author.
+      gsub(/ D(a|e|o|as|os) /i, ' ').gsub(/ E /i, ' ').
       split(' ').
       map {|nome| Unicode.upcase(nome) }.
       rotate(-1).
