@@ -21,4 +21,11 @@ describe PublicationInfo do
   it 'renders "[S.l.]" when no address is provided' do
     PublicationInfo.new(year: 1998).to_s.should == ' [S.l.], 1998.'
   end
+
+  context 'type is provided (presumes thesis)' do
+    it 'address is not rendered' do
+      PublicationInfo.new(type: 'Doutorado em Física', address: 'Niterói',
+                          year: 2000).to_s.should == ' 2000.'
+    end
+  end
 end

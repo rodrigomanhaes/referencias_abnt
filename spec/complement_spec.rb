@@ -38,4 +38,24 @@ describe Complement do
                    isbn: '85-228-0268-8').to_s.should ==
         ' 21 cm. (Coleção Vaga-Lume, 20). Something here. ISBN 85-228-0268-8.'
   end
+
+  context 'type is provided (presumes thesis)' do
+    let(:complement) do
+      Complement.new(pages: 200, type: 'Doutorado em Física',
+                     school: 'Universidade Federal Fluminense',
+                     address: 'Niterói')
+    end
+
+    it 'page acronym is "f", not "p"' do
+      complement.to_s.should =~ /200 f\./
+    end
+
+    it 'type is added to complement' do
+      complement.to_s.should start_with ' 200 f. Tese (Doutorado em Física)'
+    end
+
+    it 'renders school and address' do
+      complement.to_s.should end_with ' Tese (Doutorado em Física) - Universidade Federal Fluminense, Niterói.'
+    end
+  end
 end

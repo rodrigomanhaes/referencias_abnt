@@ -1,17 +1,20 @@
 class PublicationInfo
   def initialize(options)
-    @address, @publisher, @year, @month =
-      options.values_at(:address, :publisher, :year, :month)
+    @address, @publisher, @year, @month, @type =
+      options.values_at(:address, :publisher, :year, :month, :type)
   end
 
   def to_s
-    ' %s%s, %s%s.' % [render_address, render_publisher, render_month, @year]
+    result = ' %s%s, %s%s.' % [
+      render_address, render_publisher, render_month, @year]
+    result[0..2] = result[2] if result.strip.start_with?(',')
+    result
   end
 
   private
 
   def render_address
-    @address || '[S.l.]'
+    @type ? '' : @address || '[S.l.]'
   end
 
   def render_publisher

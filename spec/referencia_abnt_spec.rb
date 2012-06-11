@@ -116,5 +116,17 @@ describe ABNTReference do
         year: 1994).to_s.should ==
       'PERFIL da Administração Pública Paulista. 6. ed. São Paulo: FUNDAP, 1994. 317 p., 28 cm. Inclui índice. ISBN 85-7285-026-0.'
     end
+
+    it 'example 10 (introducing thesis)' do
+      ABNTReference.new(
+        address: 'Campinas',
+        author: 'Maria de Fatima Piccolo Barcelos',
+        pages: 160,
+        school: 'Faculdade de Engenharia de Alimentos, Universidade Estadual de Campinas',
+        title: 'Ensaio tecnológico, bioquímico e sensorial de soja e gandu enlatados no estágio verde e maturação de colheita',
+        type: 'Doutorado em Nutrição',
+        year: 1998).to_s.should ==
+      'BARCELOS, M. F. P. Ensaio tecnológico, bioquímico e sensorial de soja e gandu enlatados no estágio verde e maturação de colheita. 1998. 160 f. Tese (Doutorado em Nutrição) - Faculdade de Engenharia de Alimentos, Universidade Estadual de Campinas, Campinas.'
+    end
   end
 end
