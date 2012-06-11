@@ -1,6 +1,6 @@
 class Title
-  def initialize(title, subtitle = nil)
-    @title, @subtitle = title, subtitle
+  def initialize(options)
+    @title, @subtitle = options.values_at(:title, :subtitle)
   end
 
   def to_s

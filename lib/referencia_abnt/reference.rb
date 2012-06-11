@@ -1,7 +1,7 @@
 class ABNTReference
   def initialize(options)
     @author = Author.new(options.slice(:author, :organization))
-    @title = Title.new(options[:title], options[:subtitle])
+    @title = Title.new(options.slice(:title, :subtitle))
     @edition = Edition.new(options.slice(:edition))
     @publication_info = PublicationInfo.new(
       options.slice(:address, :publisher, :year, :month))
