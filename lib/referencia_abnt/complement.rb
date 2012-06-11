@@ -2,8 +2,8 @@
 
 class Complement
   def initialize(options)
-    @pages, @note, @url, @dimensions, @series =
-      options.values_at(:pages, :note, :url, :dimensions, :series)
+    @pages, @note, @url, @dimensions, @series, @number =
+      options.values_at(:pages, :note, :url, :dimensions, :series, :number)
   end
 
   def to_s
@@ -26,7 +26,11 @@ class Complement
   end
 
   def render_series
-    @series ? " (#{@series})." : ''
+    @series ? " (#{@series}#{render_series_number})." : ''
+  end
+
+  def render_series_number
+    @number ? ", #{@number}" : ''
   end
 
   def render_note

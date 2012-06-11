@@ -24,5 +24,11 @@ describe Complement do
                      series: 'Coleção Vaga-Lume').to_s.should ==
         ' 21 cm. (Coleção Vaga-Lume). Something here.'
     end
+
+    it 'with number' do
+      Complement.new(dimensions: '21 cm', note: 'Something here',
+                     series: 'Coleção Vaga-Lume', number: 20).to_s.should ==
+        ' 21 cm. (Coleção Vaga-Lume, 20). Something here.'
+    end
   end
 end
