@@ -31,4 +31,11 @@ describe Complement do
         ' 21 cm. (Coleção Vaga-Lume, 20). Something here.'
     end
   end
+
+  it 'renders ISBN' do
+    Complement.new(dimensions: '21 cm', note: 'Something here',
+                   series: 'Coleção Vaga-Lume', number: 20,
+                   isbn: '85-228-0268-8').to_s.should ==
+        ' 21 cm. (Coleção Vaga-Lume, 20). Something here. ISBN 85-228-0268-8.'
+  end
 end
