@@ -17,4 +17,8 @@ describe Author do
     Author.new(author: 'José Couves', organization: 'Anything').to_s.
       should == 'COUVES, J.'
   end
+
+  it 'renders nothing when neither author nor organization is provided' do
+    Author.new.to_s.should be_empty
+  end
 end

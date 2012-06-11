@@ -4,10 +4,14 @@ class Title
   end
 
   def to_s
-    @title + make_subtitle
+    "#{make_title}#{make_subtitle}."
   end
 
   private
+
+  def make_title
+    " #{@title}"
+  end
 
   def make_subtitle
     @subtitle ? ": #{@subtitle}" : ''

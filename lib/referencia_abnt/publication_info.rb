@@ -5,7 +5,7 @@ class PublicationInfo
   end
 
   def to_s
-    '%s%s, %s%s' % [render_address, render_publisher, render_month, @year]
+    ' %s%s, %s%s.' % [render_address, render_publisher, render_month, @year]
   end
 
   private

@@ -9,6 +9,6 @@ class ABNTReference
   end
 
   def to_s
-    "%s %s. %s.%s" % [@author, @title, @publication_info, @complement]
+    "%s%s%s%s" % [@author, @title, @publication_info, @complement]
   end
 end

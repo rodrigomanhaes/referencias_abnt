@@ -1,12 +1,12 @@
 require 'unicode'
 
 class Author
-  def initialize(options)
+  def initialize(options = {})
     @author, @organization = options[:author], options[:organization]
   end
 
   def to_s
-    make_author || make_organization
+    make_author || make_organization || ''
   end
 
   private
