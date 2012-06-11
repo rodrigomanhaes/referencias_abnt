@@ -13,4 +13,16 @@ describe Title do
               subtitle: 'Um retrato do Brasil na era Sarney').to_s.should ==
       ' Honoráveis Bandidos: Um retrato do Brasil na era Sarney.'
   end
+
+  context 'received a valid author' do
+    it 'when provided, acts as default' do
+      Title.new(title: 'Honoráveis Bandidos', author: stub(provided?: true)).
+        to_s.should == ' Honoráveis Bandidos.'
+    end
+
+    it 'when not provided, renders itself in an author-like way' do
+      Title.new(title: 'Honoráveis Bandidos', author: stub(provided?: false)).
+        to_s.should == 'HONORÁVEIS Bandidos.'
+    end
+  end
 end

@@ -9,6 +9,10 @@ class Author
     make_author || make_organization || ''
   end
 
+  def provided?
+    !!(@author || @organization)
+  end
+
   private
 
   def make_author

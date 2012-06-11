@@ -21,4 +21,12 @@ describe Author do
   it 'renders nothing when neither author nor organization is provided' do
     Author.new.to_s.should be_empty
   end
+
+  it 'checks if any author info was provided' do
+    Author.new.should_not be_provided
+    Author.new(author: 'Johnny').should be_provided
+    Author.new(organization: 'codigolivre.org').should be_provided
+    Author.new(author: 'Johnny', organization: 'codigolivre.org').
+      should be_provided
+  end
 end

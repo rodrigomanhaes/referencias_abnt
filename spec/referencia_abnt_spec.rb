@@ -102,5 +102,19 @@ describe ABNTReference do
         year: 1998).to_s.should ==
       'GOMES, L. G. F. F. Novela e Sociedade no Brasil. Niterói: EdUFF, 1998. 137 p., 21 cm. (Coleção Antropologia e Ciência Política, 15). Bibliografia: p. 131-132. ISBN 85-228-0268-8.'
     end
+
+    it 'example 9' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        edition: 6,
+        dimensions: '28 cm',
+        isbn: '85-7285-026-0',
+        note: 'Inclui índice',
+        pages: 317,
+        publisher: 'FUNDAP',
+        title: 'Perfil da Administração Pública Paulista',
+        year: 1994).to_s.should ==
+      'PERFIL da Administração Pública Paulista. 6. ed. São Paulo: FUNDAP, 1994. 317 p., 28 cm. Inclui índice. ISBN 85-7285-026-0.'
+    end
   end
 end
