@@ -12,4 +12,9 @@ describe Complement do
     Complement.new(url: 'http://abntex.codigolivre.org.br').to_s.
       should == ' Disponível em: <http://abntex.codigolivre.org.br>.'
   end
+
+  it 'renders dimensions' do
+    Complement.new(dimensions: '21 cm', note: 'Something here').to_s.should ==
+      ' 21 cm. Something here.'
+  end
 end
