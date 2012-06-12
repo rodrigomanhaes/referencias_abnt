@@ -25,7 +25,15 @@ class Author
   end
 
   def make_organization
-    Unicode.upcase(@organization) + '.' if @organization
+    if @organization
+      # apparently, when there are parentheses in the organization name,
+      # the name, beyond the first parenthesis, isn't upcased.
+      parts = @organization.split('(')
+      name = Unicode.upcase(parts.shift)
+      other_info = parts.join('(')
+      other_info = '(' + other_info unless other_info.empty?
+      "#{name}#{other_info}."
+    end
   end
 
   def authorize(name)

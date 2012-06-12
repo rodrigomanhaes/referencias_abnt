@@ -165,5 +165,17 @@ describe ABNTReference do
         year: 1995).to_s.should ==
       'BRASIL: roteiros turísticos. São Paulo: Folha da Manhã, 1995. 319 p., il. (Roteiros turísticos Fiat). Inclui mapa rodoviário.'
     end
+
+    it 'example 16' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        organization: 'São Paulo (Estado). Secretaria do Meio Ambiente. Coordenadoria de Planejamento Ambiental',
+        pages: 48,
+        series: 'Série Manuais',
+        subtitle: "manual de orientação",
+        title: 'Estudo de impacto ambiental - EIA, Relatório de Impacto ambiental - RIMA',
+        year: 1989).to_s.should ==
+      'SÃO PAULO (Estado). Secretaria do Meio Ambiente. Coordenadoria de Planejamento Ambiental. Estudo de impacto ambiental - EIA, Relatório de Impacto ambiental - RIMA: manual de orientação. São Paulo, 1989. 48 p. (Série Manuais).'
+    end
   end
 end

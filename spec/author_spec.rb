@@ -41,4 +41,9 @@ describe Author do
     Author.new(author: 'Paulinho da Viola').to_s.should == 'VIOLA, P.'
     Author.new(author: 'Jacob do Bandolim').to_s.should == 'BANDOLIM, J.'
   end
+
+  it 'renders organization in downcase starting from parenthesis' do
+    Author.new(organization: 'São Paulo (Estado). Secretaria de Meio Ambiente').to_s.
+      should == 'SÃO PAULO (Estado). Secretaria de Meio Ambiente.'
+  end
 end
