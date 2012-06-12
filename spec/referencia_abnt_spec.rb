@@ -188,5 +188,15 @@ describe ABNTReference do
         year: 1997).to_s.should ==
       'MUSEU DA IMIGRAÇÃO (São Paulo, SP). Museu da Imigração - S. Paulo: catálogo. São Paulo, 1997. 16 p.'
     end
+
+    it 'example 18' do
+      ABNTReference.new(
+        note: '1 folder. Apoio Ministério da Cultura: Lei Federal de Incentivo à Cultura',
+        organization: 'Instituto Moreira Salles',
+        subtitle: "fotografias: de 26 de abril a 3 de agosto de 1997, Casa da cultura de Poços de Caldas, MG",
+        title: 'São Paulo de Vincenzo Pastore',
+        year: 1997).to_s.should ==
+      'INSTITUTO MOREIRA SALLES. São Paulo de Vincenzo Pastore: fotografias: de 26 de abril a 3 de agosto de 1997, Casa da cultura de Poços de Caldas, MG. [S.l.], 1997. 1 folder. Apoio Ministério da Cultura: Lei Federal de Incentivo à Cultura.'
+    end
   end
 end
