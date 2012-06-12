@@ -198,5 +198,19 @@ describe ABNTReference do
         year: 1997).to_s.should ==
       'INSTITUTO MOREIRA SALLES. São Paulo de Vincenzo Pastore: fotografias: de 26 de abril a 3 de agosto de 1997, Casa da cultura de Poços de Caldas, MG. [S.l.], 1997. 1 folder. Apoio Ministério da Cultura: Lei Federal de Incentivo à Cultura.'
     end
+
+    it 'example 19 (introduces support to non-numeric edition)' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        author: 'M. Torelly',
+        edition: 'Ed. fac-sim',
+        note: 'Contém iconografia e depoimentos sobre o autor',
+        publisher: 'Studioma: Arquivo do Estado',
+        series: 'Coleção Almanaques do Barão de Itararé',
+        subtitle: 'primeiro semestre ou Almanaque d\'A Manhã',
+        title: 'Almanaque para 1949',
+        year: 1991).to_s.should ==
+      'TORELLY, M. Almanaque para 1949: primeiro semestre ou Almanaque d\'A Manhã. Ed. fac-sim. São Paulo: Studioma: Arquivo do Estado, 1991. (Coleção Almanaques do Barão de Itararé). Contém iconografia e depoimentos sobre o autor.'
+    end
   end
 end
