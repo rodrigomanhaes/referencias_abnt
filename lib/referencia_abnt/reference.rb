@@ -7,7 +7,7 @@ class ABNTReference
       options.slice(:address, :publisher, :year, :month, :type, :furtherresp))
     @complement = Complement.new(options.slice(
       :pages, :note, :url, :dimensions, :series, :number, :isbn,
-      :school, :type, :address))
+      :school, :type, :address, :illustrated))
   end
 
   def to_s

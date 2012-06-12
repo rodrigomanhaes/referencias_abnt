@@ -3,14 +3,14 @@
 class Complement
   def initialize(options)
     @pages, @note, @url, @dimensions, @series, @number, @isbn, @type,
-      @school, @address =
+      @school, @address, @illustrated =
       options.values_at(:pages, :note, :url, :dimensions, :series, :number,
-                        :isbn, :type, :school, :address)
+                        :isbn, :type, :school, :address, :illustrated)
   end
 
   def to_s
-    render_pages << render_thesis << render_dimensions << render_series << \
-      render_note << render_isbn << render_url
+    render_pages << render_illustrated << render_dimensions << render_thesis <<\
+      render_series << render_note << render_isbn << render_url
   end
 
   private
@@ -18,7 +18,16 @@ class Complement
   def render_dimensions
     if @dimensions
       dimensions = " #{@dimensions}."
-      @pages ? ",#{dimensions}" : dimensions
+      (@pages || @illustrated) ? ",#{dimensions}" : dimensions
+    else
+      ''
+    end
+  end
+
+  def render_illustrated
+    if @illustrated
+      illustrated = ' il.'
+      @pages ? ",#{illustrated}" : illustrated
     else
       ''
     end

@@ -152,5 +152,18 @@ describe ABNTReference do
         year: 1996).to_s.should ==
       "HOUAISS, A. (Ed.). Novo dicionário Folha Webster's: inglês/português, português/inglês. Co-editor Ismael Cardim. São Paulo: Folha da Manhã, 1996. Edição exclusiva para o assinante da Folha de S. Paulo."
     end
+
+    it 'example 15' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        illustrated: true,
+        note: 'Inclui mapa rodoviário',
+        pages: 319,
+        publisher: 'Folha da Manhã',
+        series: 'Roteiros turísticos Fiat',
+        title: "Brasil: roteiros turísticos",
+        year: 1995).to_s.should ==
+      'BRASIL: roteiros turísticos. São Paulo: Folha da Manhã, 1995. 319 p., il. (Roteiros turísticos Fiat). Inclui mapa rodoviário.'
+    end
   end
 end

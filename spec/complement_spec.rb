@@ -18,6 +18,27 @@ describe Complement do
       ' 21 cm. Something here.'
   end
 
+  context 'renders illustrated information' do
+    it 'with pages and dimensions' do
+      Complement.new(pages: 3, illustrated: true, dimensions: '21 cm').to_s.
+        should == ' 3 p., il., 21 cm.'
+    end
+
+    it 'without pages' do
+      Complement.new(illustrated: true, dimensions: '21 cm').to_s.
+        should == ' il., 21 cm.'
+    end
+
+    it 'without dimensions' do
+      Complement.new(pages: 3, illustrated: true).to_s.should == ' 3 p., il.'
+    end
+
+    it 'only illustrated' do
+      Complement.new(illustrated: true).to_s.
+        should == ' il.'
+    end
+  end
+
   context 'renders series' do
     it 'without number' do
       Complement.new(dimensions: '21 cm', note: 'Something here',
