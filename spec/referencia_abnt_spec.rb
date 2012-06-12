@@ -177,5 +177,16 @@ describe ABNTReference do
         year: 1989).to_s.should ==
       'SÃO PAULO (Estado). Secretaria do Meio Ambiente. Coordenadoria de Planejamento Ambiental. Estudo de impacto ambiental - EIA, Relatório de Impacto ambiental - RIMA: manual de orientação. São Paulo, 1989. 48 p. (Série Manuais).'
     end
+
+    it 'example 17' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        organization: 'Museu da Imigração (São Paulo, SP)',
+        pages: 16,
+        subtitle: "catálogo",
+        title: 'Museu da Imigração - S. Paulo',
+        year: 1997).to_s.should ==
+      'MUSEU DA IMIGRAÇÃO (São Paulo, SP). Museu da Imigração - S. Paulo: catálogo. São Paulo, 1997. 16 p.'
+    end
   end
 end
