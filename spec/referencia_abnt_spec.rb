@@ -129,7 +129,7 @@ describe ABNTReference do
       'BARCELOS, M. F. P. Ensaio tecnológico, bioquímico e sensorial de soja e gandu enlatados no estágio verde e maturação de colheita. 1998. 160 f. Tese (Doutorado em Nutrição) - Faculdade de Engenharia de Alimentos, Universidade Estadual de Campinas, Campinas.'
     end
 
-    it 'example 12' do
+    it 'example 13' do
       ABNTReference.new(
         address: 'Brasília, DF',
         edition: 2,
@@ -138,6 +138,19 @@ describe ABNTReference do
         title: 'Manual de normas de editoração do IBICT',
         year: 1993).to_s.should ==
       'IBICT. Manual de normas de editoração do IBICT. 2. ed. Brasília, DF, 1993. 41 p.'
+    end
+
+    it 'example 14' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        editor: 'Antonio Houaiss',
+        furtherresp: 'Co-editor Ismael Cardim',
+        note: 'Edição exclusiva para o assinante da Folha de S. Paulo',
+        publisher: 'Folha da Manhã',
+        subtitle: 'inglês/português, português/inglês',
+        title: "Novo dicionário Folha Webster's",
+        year: 1996).to_s.should ==
+      "HOUAISS, A. (Ed.). Novo dicionário Folha Webster's: inglês/português, português/inglês. Co-editor Ismael Cardim. São Paulo: Folha da Manhã, 1996. Edição exclusiva para o assinante da Folha de S. Paulo."
     end
   end
 end

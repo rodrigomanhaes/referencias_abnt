@@ -4,7 +4,7 @@ class ABNTReference
     @title = Title.new(options.slice(:title, :subtitle).merge(author: @author))
     @edition = Edition.new(options.slice(:edition))
     @publication_info = PublicationInfo.new(
-      options.slice(:address, :publisher, :year, :month, :type))
+      options.slice(:address, :publisher, :year, :month, :type, :furtherresp))
     @complement = Complement.new(options.slice(
       :pages, :note, :url, :dimensions, :series, :number, :isbn,
       :school, :type, :address))

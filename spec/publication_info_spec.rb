@@ -22,6 +22,12 @@ describe PublicationInfo do
     PublicationInfo.new(year: 1998).to_s.should == ' [S.l.], 1998.'
   end
 
+  it 'renders furtherresp' do
+    PublicationInfo.new(address: 'Niterói', publisher: 'EdUFF', year: 1998,
+      furtherresp: 'Co-editor José das Couves').to_s.should ==
+      ' Co-editor José das Couves. Niterói: EdUFF, 1998.'
+  end
+
   context 'type is provided (presumes thesis)' do
     it 'address is not rendered' do
       PublicationInfo.new(type: 'Doutorado em Física', address: 'Niterói',
