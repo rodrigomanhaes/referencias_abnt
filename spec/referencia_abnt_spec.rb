@@ -117,7 +117,7 @@ describe ABNTReference do
       'PERFIL da Administração Pública Paulista. 6. ed. São Paulo: FUNDAP, 1994. 317 p., 28 cm. Inclui índice. ISBN 85-7285-026-0.'
     end
 
-    it 'example 10 (introducing thesis)' do
+    it 'example 11 (introducing thesis)' do
       ABNTReference.new(
         address: 'Campinas',
         author: 'Maria de Fatima Piccolo Barcelos',
@@ -127,6 +127,17 @@ describe ABNTReference do
         type: 'Doutorado em Nutrição',
         year: 1998).to_s.should ==
       'BARCELOS, M. F. P. Ensaio tecnológico, bioquímico e sensorial de soja e gandu enlatados no estágio verde e maturação de colheita. 1998. 160 f. Tese (Doutorado em Nutrição) - Faculdade de Engenharia de Alimentos, Universidade Estadual de Campinas, Campinas.'
+    end
+
+    it 'example 12' do
+      ABNTReference.new(
+        address: 'Brasília, DF',
+        edition: 2,
+        organization: 'IBICT',
+        pages: 41,
+        title: 'Manual de normas de editoração do IBICT',
+        year: 1993).to_s.should ==
+      'IBICT. Manual de normas de editoração do IBICT. 2. ed. Brasília, DF, 1993. 41 p.'
     end
   end
 end
