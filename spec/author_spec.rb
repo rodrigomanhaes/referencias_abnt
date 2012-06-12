@@ -18,6 +18,10 @@ describe Author do
       should == 'COUVES, J.'
   end
 
+  it 'renders editor as author if provided' do
+    Author.new(editor: 'José das Couves').to_s.should == 'COUVES, J. (Ed.).'
+  end
+
   it 'renders nothing when neither author nor organization is provided' do
     Author.new.to_s.should be_empty
   end
