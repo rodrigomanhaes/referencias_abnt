@@ -3,15 +3,17 @@
 class Complement
   def initialize(options)
     @pages, @note, @url, @dimensions, @series, @number, @isbn, @type,
-      @school, @address, @illustrated, @chapter =
+      @school, @address, @illustrated, @chapter, @urlaccessdate,
+      @volume =
       options.values_at(:pages, :note, :url, :dimensions, :series, :number,
-        :isbn, :type, :school, :address, :illustrated, :chapter)
+        :isbn, :type, :school, :address, :illustrated, :chapter, :urlaccessdate,
+        :volume)
   end
 
   def to_s
     render_chapter << render_pages << render_illustrated << \
-      render_dimensions << render_thesis << render_series << render_note << \
-      render_isbn << render_url
+      render_dimensions << render_volume << render_thesis << render_series <<
+      render_note << render_isbn << render_url
   end
 
   private
@@ -53,6 +55,10 @@ class Complement
     end
   end
 
+  def render_volume
+    @volume ? " v. #{@volume}." : ''
+  end
+
   def render_illustrated
     if @illustrated
       illustrated = ' il.'
@@ -91,6 +97,17 @@ class Complement
   end
 
   def render_url
-    @url ? " Disponível em: <#{@url}>." : ''
+    @url ? " Disponível em: <#{@url}>.#{render_url_access_date}" : ''
+  end
+
+  def render_url_access_date
+    @urlaccessdate ? " Acesso em: #{format_url_access_date}." : ''
+  end
+
+  MESES = %w(0 jan fev mar abr mai jun jul ago set out nov dez)
+
+  def format_url_access_date
+    '%s %s. %s' % [@urlaccessdate.day, MESES[@urlaccessdate.month],
+      @urlaccessdate.year]
   end
 end

@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'date'
+
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe ABNTReference do
@@ -252,6 +254,31 @@ describe ABNTReference do
         title: 'Enciclopédia e dicionário digital 98',
         year: 1998).to_s.should ==
       'KOOGAN, A.; HOUAISS, A. (Ed.). Enciclopédia e dicionário digital 98. Direção geral de André Koogan Breikman. São Paulo: Delta: Estadão, 1998. 5 CD-ROM. Produzida por Videolar Multimídia.'
+    end
+
+    it 'example 23 (introduces collection with title acting as author + url access date)' do
+      ABNTReference.new(
+        address: 'Lisboa',
+        booktitle: 'Dicionário da língua portuguesa',
+        publisher: 'Priberam Informática',
+        title: 'Política',
+        url: 'http://www.priberam.pt/dlDLPO',
+        urlaccessdate: Date.new(1999, 3, 8),
+        year: 1998).to_s.should ==
+      'POLÍTICA. In: DICIONÁRIO da língua portuguesa. Lisboa: Priberam Informática, 1998. Disponível em: <http://www.priberam.pt/dlDLPO>. Acesso em: 8 mar. 1999.'
+    end
+
+    it 'example 24 (introduces volume)' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        booktitle: 'Entendendo o meio ambiente',
+        organization: 'São Paulo (Estado). Secretaria do Meio Ambiente',
+        title: 'Tratados e organizações ambientais em matéria de meio ambiente',
+        url: 'http://www.bdt.org.br/sma/entendendo/atual.htm',
+        urlaccessdate: Date.new(1999, 3, 8),
+        volume: 1,
+        year: 1999).to_s.should ==
+      'SÃO PAULO (Estado). Secretaria do Meio Ambiente. Tratados e organizações ambientais em matéria de meio ambiente. In: ______. Entendendo o meio ambiente. São Paulo, 1999. v. 1. Disponível em: <http://www.bdt.org.br/sma/entendendo/atual.htm>. Acesso em: 8 mar. 1999.'
     end
   end
 end

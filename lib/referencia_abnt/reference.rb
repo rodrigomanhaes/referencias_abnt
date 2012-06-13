@@ -12,8 +12,8 @@ class ABNTReference
     @publication_info = PublicationInfo.new(
       options.slice(:address, :publisher, :year, :month, :type, :furtherresp))
     @complement = Complement.new(options.slice(
-      :pages, :note, :url, :dimensions, :series, :number, :isbn,
-      :school, :type, :address, :illustrated, :chapter))
+      :pages, :note, :url, :dimensions, :series, :number, :isbn, :volume,
+      :school, :type, :address, :illustrated, :chapter, :urlaccessdate))
   end
 
   def to_s

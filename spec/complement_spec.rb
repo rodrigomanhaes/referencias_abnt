@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require 'date'
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe Complement do
@@ -15,6 +16,12 @@ describe Complement do
   it 'renders URL' do
     Complement.new(url: 'http://abntex.codigolivre.org.br').to_s.
       should == ' Disponível em: <http://abntex.codigolivre.org.br>.'
+  end
+
+  it 'renders URL with access date' do
+    Complement.new(url: 'http://abntex.codigolivre.org.br',
+      urlaccessdate: Date.new(2012, 04, 10)).to_s.
+      should == ' Disponível em: <http://abntex.codigolivre.org.br>. Acesso em: 10 abr. 2012.'
   end
 
   it 'renders dimensions' do
@@ -86,5 +93,9 @@ describe Complement do
 
   it 'renders chapter' do
     Complement.new(chapter: 3, pages: 200).to_s.should == ' cap. 3, 200 p.'
+  end
+
+  it 'renders volume' do
+    Complement.new(volume: 1).to_s.should == ' v. 1.'
   end
 end
