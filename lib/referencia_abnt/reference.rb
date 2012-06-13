@@ -1,10 +1,13 @@
 class ABNTReference
   def initialize(options)
-    @collection = Collection.new(options.slice(
-      :booktitle, :booksubtitle, :editor, :editortype))
     @author = Author.new(options.slice(:author, :organization, :editor).
-      merge(collection: @collection))
+      merge(collection_provided: Collection.provided?(options)))
     @title = Title.new(options.slice(:title, :subtitle).merge(author: @author))
+        @collection = Collection.new(options.slice(
+      :booktitle, :booksubtitle, :editor, :editortype))
+    @collection = Collection.new(options.slice(
+      :booktitle, :booksubtitle, :editor, :editortype).
+      merge(work_author: @author))
     @edition = Edition.new(options.slice(:edition))
     @publication_info = PublicationInfo.new(
       options.slice(:address, :publisher, :year, :month, :type, :furtherresp))

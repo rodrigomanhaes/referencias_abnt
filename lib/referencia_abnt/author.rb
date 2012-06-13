@@ -2,8 +2,8 @@ require 'unicode'
 
 class Author
   def initialize(options = {})
-    @author, @organization, @editor, @collection = options.values_at(
-      :author, :organization, :editor, :collection)
+    @author, @organization, @editor, @collection_provided = options.values_at(
+      :author, :organization, :editor, :collection_provided)
   end
 
   def to_s
@@ -21,7 +21,7 @@ class Author
   end
 
   def collection_provided?
-    @collection && @collection.provided?
+    @collection_provided
   end
 
   def make_author

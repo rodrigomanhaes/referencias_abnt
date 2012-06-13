@@ -24,7 +24,7 @@ describe Author do
 
   it 'ignores editor if collection is provided' do
     Author.new(editor: 'José das Couves', author: 'Lula Lá',
-               collection: stub(provided?: true)).to_s.should ==
+               collection_provided: true).to_s.should ==
       'LÁ, L.'
   end
 

@@ -1,9 +1,15 @@
 class Collection
+  def self.provided?(options)
+    !options[:booktitle].nil?
+  end
+
   def initialize(options)
-    @provided = !options[:booktitle].nil?
+    @provided = self.class.provided?(options)
     @author = Author.new(author: options[:editor])
+    @work_author = options[:work_author]
     @title = Title.new(title: options[:booktitle],
-                       subtitle: options[:booksubtitle])
+                       subtitle: options[:booksubtitle],
+                       author: @work_author)
     @editortype = options[:editortype]
   end
 
@@ -20,9 +26,11 @@ class Collection
   def render_author
     if @author.provided?
       '%s%s' % [@author, render_editor_acronym]
-    else
+    elsif @work_author && @work_author.provided?
       # presumes author is the editor
       '______.'
+    else
+      ''
     end
   end
 

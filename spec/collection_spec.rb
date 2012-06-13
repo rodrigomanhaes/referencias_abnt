@@ -20,10 +20,19 @@ describe Collection do
                    booksubtitle: 'with subtitle').to_s.should be_empty
   end
 
-  it 'assumes author and editor are the same if editor is not provided' do
-    Collection.new(booktitle: 'A book').to_s.should ==
-      ' In: ______. A book.'
-    Collection.new(booktitle: 'A book', booksubtitle: 'with subtitle', ).to_s.
-      should == ' In: ______. A book: with subtitle.'
+  context 'editor is not provided' do
+    it 'assumes author and editor are the same if author is provided' do
+      Collection.new(booktitle: 'A book', work_author: stub(provided?: true)).
+        to_s.should == ' In: ______. A book.'
+      Collection.new(booktitle: 'A book', booksubtitle: 'with subtitle',
+        work_author: stub(provided?: true)).to_s.should ==
+        ' In: ______. A book: with subtitle.'
+    end
+
+    it 'behaves like when there is no author if author is not provided' do
+      Collection.new(booktitle: 'Crazy book',
+                     work_author: stub(provided?: false)).to_s.should ==
+        ' In: CRAZY book.'
+    end
   end
 end
