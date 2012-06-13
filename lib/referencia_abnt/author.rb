@@ -2,8 +2,8 @@ require 'unicode'
 
 class Author
   def initialize(options = {})
-    @author, @organization, @editor = options.values_at(
-      :author, :organization, :editor)
+    @author, @organization, @editor, @collection = options.values_at(
+      :author, :organization, :editor, :collection)
   end
 
   def to_s
@@ -17,7 +17,11 @@ class Author
   private
 
   def make_editor
-    "#{authorize(@editor)} (Ed.)." if @editor
+    "#{authorize(@editor)} (Ed.)." if @editor && !collection_provided?
+  end
+
+  def collection_provided?
+    @collection && @collection.provided?
   end
 
   def make_author
@@ -38,11 +42,17 @@ class Author
 
   def authorize(name)
     name.
-      gsub(/ D(a|e|o|as|os) /i, ' ').gsub(/ E /i, ' ').
-      split(' ').
-      map {|nome| Unicode.upcase(nome) }.
-      rotate(-1).
-      map.with_index {|n, i| i == 0 ? "#{n}," : "#{n[0]}." }.
-      join(' ')
+      split(';').
+      map(&:strip).
+      map { |author|
+        author.
+          gsub(/ D(a|e|o|as|os) /i, ' ').gsub(/ E /i, ' ').
+          split(' ').
+          map {|nome| Unicode.upcase(nome) }.
+          rotate(-1).
+          map.with_index {|n, i| i == 0 ? "#{n}," : "#{n[0]}." }.
+          join(' ')
+      }.
+      join('; ')
   end
 end

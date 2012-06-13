@@ -1,6 +1,9 @@
 class ABNTReference
   def initialize(options)
-    @author = Author.new(options.slice(:author, :organization, :editor))
+    @collection = Collection.new(options.slice(
+      :booktitle, :booksubtitle, :editor, :editortype))
+    @author = Author.new(options.slice(:author, :organization, :editor).
+      merge(collection: @collection))
     @title = Title.new(options.slice(:title, :subtitle).merge(author: @author))
     @edition = Edition.new(options.slice(:edition))
     @publication_info = PublicationInfo.new(
@@ -11,6 +14,6 @@ class ABNTReference
   end
 
   def to_s
-    "%s%s%s%s%s" % [@author, @title, @edition, @publication_info, @complement]
+    "%s%s%s%s%s%s" % [@author, @title, @collection, @edition, @publication_info, @complement]
   end
 end

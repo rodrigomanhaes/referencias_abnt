@@ -212,5 +212,20 @@ describe ABNTReference do
         year: 1991).to_s.should ==
       'TORELLY, M. Almanaque para 1949: primeiro semestre ou Almanaque d\'A Manhã. Ed. fac-sim. São Paulo: Studioma: Arquivo do Estado, 1991. (Coleção Almanaques do Barão de Itararé). Contém iconografia e depoimentos sobre o autor.'
     end
+
+    it 'example 20 (introduces part of publication and many authors)' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        author: 'G. Romano',
+        booktitle: 'História dos jovens 2',
+        booksubtitle: 'a época contemporânea',
+        editor: 'G. Levi; J. Schmidt',
+        editortype: 'Org.',
+        pages: '7-16',
+        publisher: 'Companhia das Letras',
+        title: 'Imagens da juventude na era moderna',
+        year: 1996).to_s.should ==
+      'ROMANO, G. Imagens da juventude na era moderna. In: LEVI, G.; SCHMIDT, J. (Org.). História dos jovens 2: a época contemporânea. São Paulo: Companhia das Letras, 1996. p. 7-16.'
+    end
   end
 end

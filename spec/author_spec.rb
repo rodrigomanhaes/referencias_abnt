@@ -22,6 +22,19 @@ describe Author do
     Author.new(editor: 'José das Couves').to_s.should == 'COUVES, J. (Ed.).'
   end
 
+  it 'ignores editor if collection is provided' do
+    Author.new(editor: 'José das Couves', author: 'Lula Lá',
+               collection: stub(provided?: true)).to_s.should ==
+      'LÁ, L.'
+  end
+
+  context 'many authors' do
+    it 'supports many authors' do
+      Author.new(author: 'Zeca Pagodinho; Paulinho da Viola').to_s.should ==
+        'PAGODINHO, Z.; VIOLA, P.'
+    end
+  end
+
   it 'renders nothing when neither author nor organization is provided' do
     Author.new.to_s.should be_empty
   end
