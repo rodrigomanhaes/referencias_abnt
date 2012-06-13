@@ -15,6 +15,26 @@ class Complement
 
   private
 
+  def render_pages
+    if @pages
+      if pages_is_a_range?
+        " #{page_acronym}. #{@pages}."
+      else
+        " #{@pages} #{page_acronym}."
+      end
+    else
+      ''
+    end
+  end
+
+  def pages_is_a_range?
+    @pages =~ /^[0-9]+\-[0-9]+$/
+  end
+
+  def page_acronym
+    @type ? 'f' : 'p'
+  end
+
   def render_dimensions
     if @dimensions
       dimensions = " #{@dimensions}."
@@ -43,14 +63,6 @@ class Complement
 
   def render_address
     @address ? ", #{@address}" : ''
-  end
-
-  def render_pages
-    @pages ? " #{@pages} #{page_acronym}." : ''
-  end
-
-  def page_acronym
-    @type ? 'f' : 'p'
   end
 
   def render_series

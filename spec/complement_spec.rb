@@ -8,6 +8,10 @@ describe Complement do
       should == ' 4 p. Substitui a Ref. 6.'
   end
 
+  it 'renders pages with "p" as prefix when it is a range' do
+    Complement.new(pages: '5-10').to_s.should == ' p. 5-10.'
+  end
+
   it 'renders URL' do
     Complement.new(url: 'http://abntex.codigolivre.org.br').to_s.
       should == ' Disponível em: <http://abntex.codigolivre.org.br>.'
