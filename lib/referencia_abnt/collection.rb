@@ -1,6 +1,6 @@
 class Collection
   def initialize(options)
-    @provided = options.slice(:editor, :booktitle, :booksubtitle).count == 3
+    @provided = !options[:booktitle].nil?
     @author = Author.new(author: options[:editor])
     @title = Title.new(title: options[:booktitle],
                        subtitle: options[:booksubtitle])
@@ -8,7 +8,7 @@ class Collection
   end
 
   def to_s
-    @provided ? ' In: %s%s%s' % [@author, render_editor_acronym, @title] : ''
+    @provided ? ' In: %s%s' % [render_author, @title] : ''
   end
 
   def provided?
@@ -16,6 +16,15 @@ class Collection
   end
 
   private
+
+  def render_author
+    if @author.provided?
+      '%s%s' % [@author, render_editor_acronym]
+    else
+      # presumes author is the editor
+      '______.'
+    end
+  end
 
   DEFAULT_EDITOR_ACRONYM = 'Ed.'
 
