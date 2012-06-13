@@ -227,5 +227,19 @@ describe ABNTReference do
         year: 1996).to_s.should ==
       'ROMANO, G. Imagens da juventude na era moderna. In: LEVI, G.; SCHMIDT, J. (Org.). História dos jovens 2: a época contemporânea. São Paulo: Companhia das Letras, 1996. p. 7-16.'
     end
+
+    it 'example 21 (introduces underlines for the same author in chapter and collection)' do
+      ABNTReference.new(
+        address: 'Macapá',
+        author: 'Fernando Rodrigues dos Santos',
+        booktitle: 'História do Amapá, 1º grau',
+        chapter: 3,
+        edition: 2,
+        pages: '15-24',
+        publisher: 'Valcan',
+        title: 'A colonização da terra dos Tucujús',
+        year: 1994).to_s.should ==
+      'SANTOS, F. R. A colonização da terra dos Tucujús. In: ______. História do Amapá, 1º grau. 2. ed. Macapá: Valcan, 1994. cap. 3, p. 15-24.'
+    end
   end
 end

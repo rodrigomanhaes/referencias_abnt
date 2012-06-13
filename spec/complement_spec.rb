@@ -83,4 +83,8 @@ describe Complement do
       complement.to_s.should end_with ' Tese (Doutorado em Física) - Universidade Federal Fluminense, Niterói.'
     end
   end
+
+  it 'renders chapter' do
+    Complement.new(chapter: 3, pages: 200).to_s.should == ' cap. 3, 200 p.'
+  end
 end
