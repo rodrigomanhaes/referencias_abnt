@@ -241,5 +241,17 @@ describe ABNTReference do
         year: 1994).to_s.should ==
       'SANTOS, F. R. A colonização da terra dos Tucujús. In: ______. História do Amapá, 1º grau. 2. ed. Macapá: Valcan, 1994. cap. 3, p. 15-24.'
     end
+
+    it 'example 22' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        editor: 'Abraham Koogan; Antonio Houaiss',
+        furtherresp: 'Direção geral de André Koogan Breikman',
+        note: '5 CD-ROM. Produzida por Videolar Multimídia',
+        publisher: 'Delta: Estadão',
+        title: 'Enciclopédia e dicionário digital 98',
+        year: 1998).to_s.should ==
+      'KOOGAN, A.; HOUAISS, A. (Ed.). Enciclopédia e dicionário digital 98. Direção geral de André Koogan Breikman. São Paulo: Delta: Estadão, 1998. 5 CD-ROM. Produzida por Videolar Multimídia.'
+    end
   end
 end
