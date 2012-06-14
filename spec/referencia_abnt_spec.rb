@@ -280,5 +280,16 @@ describe ABNTReference do
         year: 1999).to_s.should ==
       'SÃO PAULO (Estado). Secretaria do Meio Ambiente. Tratados e organizações ambientais em matéria de meio ambiente. In: ______. Entendendo o meio ambiente. São Paulo, 1999. v. 1. Disponível em: <http://www.bdt.org.br/sma/entendendo/atual.htm>. Acesso em: 8 mar. 1999.'
     end
+
+    it 'example 25 (introduces support to missing title and ISSN)' do
+      ABNTReference.new(
+        address: 'Rio de Janeiro',
+        issn: '0034-723X',
+        note: 'Trimestral. Absorveu Boletim Geográfico do IBGE. Índice acumulado. 1939-1983',
+        organization: 'Revista Brasileira de Geografia',
+        publisher: 'IBGE',
+        year: '1939-').to_s.should ==
+      'REVISTA BRASILEIRA DE GEOGRAFIA. Rio de Janeiro: IBGE, 1939-. Trimestral. Absorveu Boletim Geográfico do IBGE. Índice acumulado. 1939-1983. ISSN 0034-723X.'
+    end
   end
 end

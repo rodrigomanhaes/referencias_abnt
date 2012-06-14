@@ -71,6 +71,12 @@ describe Complement do
         ' 21 cm. (Coleção Vaga-Lume, 20). Something here. ISBN 85-228-0268-8.'
   end
 
+  it 'renders ISSN' do
+    Complement.new(dimensions: '21 cm', note: 'Something here',
+                   issn: '1234-123X').to_s.should ==
+        ' 21 cm. Something here. ISSN 1234-123X.'
+  end
+
   context 'type is provided (presumes thesis)' do
     let(:complement) do
       Complement.new(pages: 200, type: 'Doutorado em Física',

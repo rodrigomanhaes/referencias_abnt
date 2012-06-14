@@ -4,16 +4,16 @@ class Complement
   def initialize(options)
     @pages, @note, @url, @dimensions, @series, @number, @isbn, @type,
       @school, @address, @illustrated, @chapter, @urlaccessdate,
-      @volume =
+      @volume, @issn =
       options.values_at(:pages, :note, :url, :dimensions, :series, :number,
         :isbn, :type, :school, :address, :illustrated, :chapter, :urlaccessdate,
-        :volume)
+        :volume, :issn)
   end
 
   def to_s
     render_chapter << render_pages << render_illustrated << \
       render_dimensions << render_volume << render_thesis << render_series <<
-      render_note << render_isbn << render_url
+      render_note << render_isbn << render_issn << render_url
   end
 
   private
@@ -94,6 +94,10 @@ class Complement
 
   def render_isbn
     @isbn ? " ISBN #{@isbn}." : ''
+  end
+
+  def render_issn
+    @issn ? " ISSN #{@issn}." : ''
   end
 
   def render_url
