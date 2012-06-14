@@ -301,5 +301,16 @@ describe ABNTReference do
         year: '1943-1978').to_s.should ==
       'BOLETIM GEOGRÁFICO. Rio de Janeiro: IBGE, 1943-1978. Trimestral.'
     end
+
+    it 'example 27' do
+      ABNTReference.new(
+        address: 'São Paulo',
+        issn: '0035-0362',
+        note: 'Bimensal',
+        organization: 'São Paulo Medical Journal=Revista Paulista de Medicina',
+        publisher: 'Associação Paulista de Medicina',
+        year: '1941-').to_s.should ==
+      'SÃO PAULO MEDICAL JOURNAL=REVISTA PAULISTA DE MEDICINA. São Paulo: Associação Paulista de Medicina, 1941-. Bimensal. ISSN 0035-0362.'
+    end
   end
 end
