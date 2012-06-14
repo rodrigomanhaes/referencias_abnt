@@ -14,6 +14,10 @@ describe Title do
       ' Honoráveis Bandidos: Um retrato do Brasil na era Sarney.'
   end
 
+  it 'render nothing when omitted' do
+    Title.new({}).to_s.should be_empty
+  end
+
   context 'received a valid author' do
     it 'when provided, acts as default' do
       Title.new(title: 'Honoráveis Bandidos', author: stub(provided?: true)).

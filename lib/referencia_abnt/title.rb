@@ -6,7 +6,7 @@ class Title
   end
 
   def to_s
-    "#{render_title}#{render_subtitle}."
+    @title ? "#{render_title}#{render_subtitle}." : ''
   end
 
   private
