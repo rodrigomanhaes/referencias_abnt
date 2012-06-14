@@ -291,5 +291,15 @@ describe ABNTReference do
         year: '1939-').to_s.should ==
       'REVISTA BRASILEIRA DE GEOGRAFIA. Rio de Janeiro: IBGE, 1939-. Trimestral. Absorveu Boletim Geográfico do IBGE. Índice acumulado. 1939-1983. ISSN 0034-723X.'
     end
+
+    it 'example 26' do
+      ABNTReference.new(
+        address: 'Rio de Janeiro',
+        note: 'Trimestral',
+        organization: 'Boletim Geográfico',
+        publisher: 'IBGE',
+        year: '1943-1978').to_s.should ==
+      'BOLETIM GEOGRÁFICO. Rio de Janeiro: IBGE, 1943-1978. Trimestral.'
+    end
   end
 end
