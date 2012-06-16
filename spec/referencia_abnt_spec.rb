@@ -312,5 +312,9 @@ describe ABNTReference do
         year: '1941-').to_s.should ==
       'SÃO PAULO MEDICAL JOURNAL=REVISTA PAULISTA DE MEDICINA. São Paulo: Associação Paulista de Medicina, 1941-. Bimensal. ISSN 0035-0362.'
     end
+
+    it 'example 28' do
+      ABNTReference.new(...)
+    end
   end
 end
